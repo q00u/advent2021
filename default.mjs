@@ -1,19 +1,13 @@
+import { autoparse } from "./lib/autoparse.mjs";
+
 const input = ``;
 
 const test = ``;
 
-// SPLIT LINES
-// const lines = test.split('\n');
-const lines = input.split('\n');
 
-// SPLIT CHARS
-// const chars = test.split('');
-// const chars = input.split('');
+// const parsed = autoparse(input);
+const parsed = autoparse(test);
 
-// PARSE CHARS
-// const parsed = chars.map(char => parseInt(char));
-// PARSE LINES
-const parsed = lines.map(line => parseInt(line));
 
 // Part 1:
 function puzzle1() {
