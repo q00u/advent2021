@@ -10,10 +10,10 @@ for (const f of parsed) fish[f]++;
 function spawn(days) {
     for (let day = 0; day < days; day++) {
         fish.push(fish.shift());
-        fish[6]+=fish[8];
+        fish[6] += fish[8];
     }
-    return fish.reduce((p, c) => p+c);
+    return fish.reduce((p, c) => p + c);
 }
 
 console.log('Part 1:', spawn(80));
-console.log('Part 2:', spawn(256-80));
+console.log('Part 2:', spawn(256 - 80));
