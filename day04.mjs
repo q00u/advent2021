@@ -1,4 +1,4 @@
-import { autoparse } from "./lib/autoparse.mjs";
+import { autoparse } from './lib/autoparse.mjs';
 
 const input = `30,35,8,2,39,37,72,7,81,41,25,46,56,18,89,70,0,15,84,75,88,67,42,44,94,71,79,65,58,52,96,83,54,29,14,95,66,61,97,68,57,90,55,32,17,47,20,98,1,69,63,62,31,86,77,85,87,93,26,40,24,19,48,76,73,49,34,45,82,22,80,78,23,6,59,91,64,43,21,51,13,3,53,99,4,28,33,74,12,9,36,50,60,11,27,10,5,16,92,38
 
@@ -639,8 +639,8 @@ for (let i = 1; i < parsed.length; i++) {
         // console.log(line);
         // console.log(typeof line);
         const squares = [];
-        for (let k = 0, l = line.length; k < l; k+=2) {
-            squares.push(parseInt(line.substring(k, k+2)));
+        for (let k = 0, l = line.length; k < l; k += 2) {
+            squares.push(parseInt(line.substring(k, k + 2), 10));
             // console.log(squares);
             k++;
         }
@@ -660,12 +660,12 @@ function checkBoard(board, nextBall) {
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
             // if (nextBall == 24) console.log('Checking square:',board[i][j]);
-            if (board[i][j] != -1) {
+            if (board[i][j] !== -1) {
                 horizontal = false;
                 // if (nextBall == 24) console.log('Horizontal fail');
             }
             // if (nextBall == 24) console.log('Checking square:',board[j][i]);
-            if (board[j][i] != -1) {
+            if (board[j][i] !== -1) {
                 vertical = false;
                 // if (nextBall == 24) console.log('Vertical fail');
             }
@@ -680,29 +680,29 @@ function callNumber(board, n) {
     for (let i = 0; i < board.length; i++) {
         const index = board[i].indexOf(n);
         if (index !== -1) {
+            // eslint-disable-next-line no-param-reassign
             board[i][index] = -1;
         }
     }
 }
 
 function winningBoard(board, nextBall) {
-    console.log('Winning board:',board);
+    console.log('Winning board:', board);
     let sum = 0;
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
-            if (board[i][j] != -1) {
+            if (board[i][j] !== -1) {
                 sum += board[i][j];
             }
         }
     }
-    console.log('Sum:',sum);
+    console.log('Sum:', sum);
     return sum * nextBall;
 }
 
 // Part 1:
 function puzzle1() {
-    let p = 0;
-    let noWinner = true;
+    const noWinner = true;
     for (let p = 0; p < balls.length && noWinner; p++) {
         const nextBall = balls[p];
         // console.log('Next ball:', nextBall);
@@ -711,12 +711,11 @@ function puzzle1() {
             callNumber(board, nextBall);
             if (checkBoard(board, nextBall)) {
                 return winningBoard(board, nextBall);
-                noWinner = false;
-                break;
             }
         }
-        if (nextBall == 24) console.log('Boards:', boards);
+        if (nextBall === 24) console.log('Boards:', boards);
     }
+    return -1;
 }
 
 const part1 = puzzle1();
@@ -724,7 +723,7 @@ console.log('Part 1:', part1);
 
 // Part 2:
 function puzzle2() {
-    let count = 0;
+    const count = 0;
     return count;
 }
 

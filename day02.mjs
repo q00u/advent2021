@@ -1,4 +1,4 @@
-import { autoparse } from "./lib/autoparse.mjs";
+import { autoparse } from './lib/autoparse.mjs';
 
 const input = `forward 8
 forward 3
@@ -1024,6 +1024,7 @@ function puzzle1() {
             case 'forward': horizontal += instruction.args[0]; break;
             case 'up': depth -= instruction.args[0]; break;
             case 'down': depth += instruction.args[0]; break;
+            default: throw new Error(`Unknown opcode: ${instruction.opcode}`);
         }
     }
     return horizontal * depth;
@@ -1046,6 +1047,7 @@ function puzzle2() {
                 break;
             case 'up': aim -= instruction.args[0]; break;
             case 'down': aim += instruction.args[0]; break;
+            default: throw new Error(`Unknown opcode: ${instruction.opcode}`);
         }
     }
     return horizontal * depth;

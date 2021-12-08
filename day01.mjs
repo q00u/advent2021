@@ -2021,7 +2021,7 @@ const lines = input.split('\n');
 // PARSE CHARS
 // const parsed = chars.map(char => parseInt(char));
 // PARSE LINES
-const parsed = lines.map(line => parseInt(line));
+const parsed = lines.map((line) => parseInt(line, 10));
 
 // Part 1:
 function puzzle1() {
@@ -2042,7 +2042,7 @@ function puzzle2() {
     let count = 0;
     let sum = parsed[0] + parsed[1] + parsed[2];
     for (let i = 3; i < parsed.length; i++) {
-        let newsum = parsed[i-2] + parsed[i-1] + parsed[i];
+        const newsum = parsed[i - 2] + parsed[i - 1] + parsed[i];
         if (newsum > sum) {
             count++;
         }

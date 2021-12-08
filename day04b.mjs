@@ -629,7 +629,7 @@ const lines = input.split('\n');
 // const chars = input.split('');
 
 // SPLIT NUMBERS
-const balls = lines[0].split(',').map(num => parseInt(num));
+const balls = lines[0].split(',').map((num) => parseInt(num, 10));
 // console.log(balls);
 
 // PARSE CHARS
@@ -639,14 +639,14 @@ const boards = [];
 const bingos = [];
 // PARSE LINES
 // const parsed = lines.map(line => parseInt(line));
-for (let i = 2; i < lines.length; i+=6) {
+for (let i = 2; i < lines.length; i += 6) {
     const board = [];
     const bingo = [];
     for (let j = 0; j < 5; j++) {
-        let line = lines[i+j].split(' ');
-        line = line.filter(num => num !== '');
-        line = line.map(num => parseInt(num));
-        const bline = line.map(num => false);
+        let line = lines[i + j].split(' ');
+        line = line.filter((num) => num !== '');
+        line = line.map((num) => parseInt(num, 10));
+        const bline = line.map((num) => false);
         board.push(line);
         bingo.push(bline);
     }
@@ -721,6 +721,7 @@ function checkBingo(board, bingo, i, j) {
 // Part 1:
 function puzzle1() {
     // For each ball, check if it is in any of the bingo boards
+    // eslint-disable-next-line no-restricted-syntax
     for (const ball of balls) {
         // For each board, check if the ball is in it
         for (let b = 0; b < boards.length; b++) {
@@ -739,6 +740,7 @@ function puzzle1() {
             }
         }
     }
+    return -1;
 }
 
 const part1 = puzzle1();
@@ -751,6 +753,7 @@ const ballers = [];
 // Part 2:
 function puzzle2() {
     // For each ball, check if it is in any of the bingo boards
+    // eslint-disable-next-line no-restricted-syntax
     for (const ball of balls) {
         // console.log('Checking ball:', ball);
         // For each board, check if the ball is in it
@@ -778,7 +781,7 @@ function puzzle2() {
     }
 
     // Print the final winner
-    const lastPlace = winners.length -1;
+    const lastPlace = winners.length - 1;
     const finalWinner = winners[lastPlace];
     const finalBingo = bwinners[lastPlace];
     const finalBall = ballers[lastPlace];

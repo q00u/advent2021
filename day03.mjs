@@ -1,4 +1,4 @@
-import { autoparse } from "./lib/autoparse.mjs";
+import { autoparse } from './lib/autoparse.mjs';
 
 const input = `110001010111
 011011110010
@@ -1042,7 +1042,7 @@ function gamma() {
 }
 
 function puzzle1() {
-    let g = gamma();
+    const g = gamma();
     let e = '';
     for (let i = 0; i < g.length; i++) {
         if (g[i] === '1') {
@@ -1051,9 +1051,9 @@ function puzzle1() {
             e += '1';
         }
     }
-    let gam = parseInt(g, 2);
-    let eps = parseInt(e, 2);
-    let mult = gam * eps;
+    const gam = parseInt(g, 2);
+    const eps = parseInt(e, 2);
+    const mult = gam * eps;
     return mult;
 }
 
@@ -1062,7 +1062,7 @@ console.log('Part 1:', part1);
 
 function filterArray(arr, pos, val) {
     // console.log('Filtering position ' + pos + ' with value ' + val);
-    let newArr = [];
+    const newArr = [];
     for (let i = 0; i < arr.length; i++) {
         if (arr[i][pos] === val) {
             newArr.push(arr[i]);
@@ -1112,8 +1112,8 @@ function puzzle2() {
         }
     }
     // console.log('cosel:', cosel);
-    let ox = parseInt(oxsel[0], 2);
-    let co = parseInt(cosel[0], 2);
+    const ox = parseInt(oxsel[0], 2);
+    const co = parseInt(cosel[0], 2);
     return ox * co;
 }
 

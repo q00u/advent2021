@@ -1,4 +1,4 @@
-import { autoparse } from "./lib/autoparse.mjs";
+import { autoparse } from './lib/autoparse.mjs';
 
 const input = `527,299 -> 430,299
 828,228 -> 81,228
@@ -518,10 +518,10 @@ const parsed = autoparse(input);
 // console.log(parsed);
 
 function getMax(a) {
-    return Math.max(...a.map(e => Array.isArray(e) ? getMax(e) : e));
+    return Math.max(...a.map((e) => (Array.isArray(e) ? getMax(e) : e)));
 }
 
-const maxDim = getMax(parsed)+1;
+const maxDim = getMax(parsed) + 1;
 
 function printDiagram(diagram) {
     let header = '  ';
@@ -555,6 +555,7 @@ function countTwoPlus(diagram) {
 function puzzle1() {
     const diagram = Array.from(Array(maxDim), () => Array(maxDim).fill(0));
     // console.log(diagram);
+    // eslint-disable-next-line no-restricted-syntax
     for (let [[x, y], [vx, vy]] of parsed) {
         // console.log(x, y, vx, vy);
         // Check if the line is horizontal or vertical
@@ -592,6 +593,7 @@ console.log('Part 1:', part1);
 function puzzle2() {
     const diagram = Array.from(Array(maxDim), () => Array(maxDim).fill(0));
     // console.log(diagram);
+    // eslint-disable-next-line prefer-const, no-restricted-syntax
     for (let [[x, y], [vx, vy]] of parsed) {
         // Get y-step
         let yStep = vy - y;
