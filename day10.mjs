@@ -112,9 +112,9 @@ function findFirst(line) {
         const char = thisLine[pos];
         switch (char) {
             // Push openers to stack
-            case '{':
             case '(':
             case '[':
+            case '{':
             case '<': stack.push(char); break;
             // Pop closers; if error, return value
             case ')': if (stack.pop() !== '(') return 3; break;
@@ -149,14 +149,14 @@ function findIncomplete(line) {
         const char = thisLine[pos];
         switch (char) {
             // Push openers to stack
-            case '{':
             case '(':
             case '[':
+            case '{':
             case '<': stack.push(char); break;
             // Pop closers; if error, return no remainder (ignore line)
-            case '}': if (stack.pop() !== '{') return []; break;
             case ')': if (stack.pop() !== '(') return []; break;
             case ']': if (stack.pop() !== '[') return []; break;
+            case '}': if (stack.pop() !== '{') return []; break;
             case '>': if (stack.pop() !== '<') return []; break;
             default: console.log(`Unknown character: ${char}`); return [-1];
         }
