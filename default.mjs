@@ -1,4 +1,4 @@
-import { autoparse } from "./lib/autoparse.mjs";
+import { autoparse } from './lib/autoparse.mjs';
 
 const input = ``;
 
