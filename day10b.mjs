@@ -141,7 +141,6 @@ function scan(line) {
         pos++;
     }
     let score = 0;
-    stack.reverse();
     while (stack.length > 0) {
         const char = stack.pop();
         score *= 5;
@@ -153,7 +152,7 @@ function scan(line) {
             default: console.log(`Unknown character: ${char}`);
         }
     }
-    incomplete.push(stack);
+    incomplete.push(score);
 }
 
 parsed.forEach((line) => scan(line));
