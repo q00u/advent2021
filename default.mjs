@@ -15,7 +15,7 @@ const test = ``;
 
 // const parsed = autoparse(input);
 const parsed = autoparse(test);
-
+console.log(parsed);
 
 // Part 1:
 function puzzle1() {
